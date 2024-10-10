@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:padding="16dp">
+
+
+    <ImageView
+        android:id="@+id/imageViewDetail"
+        android:layout_width="257dp"
+        android:layout_height="164dp"
+        android:layout_marginTop="61dp"
+        android:layout_marginBottom="63dp"
+        app:layout_constraintBottom_toTopOf="@+id/artNameDetail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_launcher_background" />
+
+    <EditText
+        android:id="@+id/artNameDetail"
+        android:layout_width="248dp"
+        android:layout_height="49dp"
+        android:layout_marginBottom="34dp"
+        android:ems="10"
+        android:hint="Enter Art Name"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/artistNameDetail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewDetail" />
+
+    <EditText
+        android:id="@+id/artistNameDetail"
+        android:layout_width="254dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="33dp"
+        android:ems="10"
+        android:hint="Enter Artist Name"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/artYearDetail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/artNameDetail" />
+
+    <EditText
+        android:id="@+id/artYearDetail"
+        android:layout_width="263dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="41dp"
+        android:ems="10"
+        android:hint="Enter Art Year"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/saveButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/artistNameDetail" />
+
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="132dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="46dp"
+        android:text="SAVE"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/artYearDetail" />
+</androidx.constraintlayout.widget.ConstraintLayout>

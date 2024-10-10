@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp"
+    android:orientation="horizontal"
+    >
+
+    <ImageView
+        android:id="@+id/recyclerRowImage"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:background="@drawable/ic_launcher_background"
+        android:scaleType="centerCrop"
+        >
+
+    </ImageView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:id="@+id/recyclerRowArtName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Art Name"
+            android:textSize="27sp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="5dp"
+            >
+        </TextView>
+
+        <TextView
+            android:id="@+id/recyclerRowArtistName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Artist Name"
+            android:textSize="20sp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="5dp"
+            >
+        </TextView>
+
+        <TextView
+            android:id="@+id/recyclerRowArtYear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Art Year"
+            android:textSize="17sp"
+            android:layout_marginStart="150dp"
+            android:layout_marginBottom="5dp"
+            >
+        </TextView>
+
+    </LinearLayout>
+
+</LinearLayout>
