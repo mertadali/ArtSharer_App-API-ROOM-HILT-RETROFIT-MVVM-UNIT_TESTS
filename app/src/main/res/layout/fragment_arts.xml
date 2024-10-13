@@ -31,10 +31,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
+        android:contentDescription="click"
+        android:focusable="true"
         app:srcCompat="@drawable/ic_launcher_foreground"
         app:fabSize="normal"
         app:layout_anchorGravity="bottom|end|right"
-        app:layout_anchor="@id/recyclerViewArt"
+      app:layout_anchor="@id/recyclerViewArt"
         android:layout_margin="16dp"
          />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
