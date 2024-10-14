@@ -7,6 +7,7 @@ import androidx.room.PrimaryKey
 
 @Entity("artsTable")
 data class ArtDbModel(
+
     val artName : String?,
     val artistName : String?,
     val artYear : Int?,

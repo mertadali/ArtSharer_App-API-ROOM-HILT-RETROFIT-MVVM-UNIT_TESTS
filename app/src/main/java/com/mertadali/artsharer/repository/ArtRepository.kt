@@ -23,6 +23,8 @@ class ArtRepository @Inject constructor(private val artDao: ArtDao, private val 
         return artDao.observeArts()
     }
 
+
+
     override suspend fun searchImage(imageString: String): Resource<ImageResponse> {
       return try {
           val response = retrofitAPI.imageSearch(imageString)

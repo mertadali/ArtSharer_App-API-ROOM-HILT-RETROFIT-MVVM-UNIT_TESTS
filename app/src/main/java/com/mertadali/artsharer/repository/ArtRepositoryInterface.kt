@@ -10,12 +10,15 @@ Bu proje için test yazacağız. Ancak internetten veri çekerken veya threading
  */
 
 interface ArtRepositoryInterface {
+    // -> Room
 
     suspend fun insertArts(art : ArtDbModel)
 
     suspend fun deleteArts(art: ArtDbModel)
 
      fun observeArts() : LiveData<List<ArtDbModel>>
+
+     // -> APİ
 
      suspend fun searchImage(imageString: String) : Resource<ImageResponse>  //-> ERROR, LOADİNG, SUCCESS olabilir bu sebeple utilde bir resource kullanacağız.
 
