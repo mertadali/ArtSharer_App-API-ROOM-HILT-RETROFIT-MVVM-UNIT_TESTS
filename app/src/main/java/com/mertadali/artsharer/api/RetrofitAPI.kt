@@ -6,6 +6,7 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 // Retrofit ile verileri çekeceğiz.
+// @GET(value = "/api/"): Bu anotasyon, belirtilen URL yoluna (endpoint) HTTP GET isteği gönderileceğini belirtir.
 
 interface RetrofitAPI {
 

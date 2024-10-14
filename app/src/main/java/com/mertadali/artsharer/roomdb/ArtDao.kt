@@ -10,7 +10,8 @@ import androidx.room.Query
 @Dao
 interface ArtDao {
 
-    // Suspend function -> using with Coroutines to make asynchronous process. At the same time it help resume & pause. -> Multi threading
+    // Suspend function -> using with Coroutines to make asynchronous process. At the same time it help resume & pause.
+    //  suspend kelimesi ise bu fonksiyonun kotlin coroutines kullanarak asenkron çalışacağını belirtir
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertArts(art : ArtDbModel)
@@ -19,7 +20,7 @@ interface ArtDao {
     suspend fun deleteArts(art : ArtDbModel)
 
     @Query("SELECT * FROM artsTable")
-    suspend fun observeArts() : LiveData<List<ArtDbModel>>
+     fun observeArts() : LiveData<List<ArtDbModel>>
 
 
 
