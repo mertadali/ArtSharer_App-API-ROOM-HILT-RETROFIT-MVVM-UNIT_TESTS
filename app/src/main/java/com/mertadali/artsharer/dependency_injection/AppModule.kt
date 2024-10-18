@@ -1,8 +1,15 @@
 package com.mertadali.artsharer.dependency_injection
 
 import android.content.Context
+import androidx.room.Dao
 import androidx.room.Room
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
+import com.mertadali.artsharer.R
 import com.mertadali.artsharer.api.RetrofitAPI
+import com.mertadali.artsharer.repository.ArtRepository
+import com.mertadali.artsharer.repository.ArtRepositoryInterface
+import com.mertadali.artsharer.roomdb.ArtDao
 import com.mertadali.artsharer.roomdb.ArtDatabase
 import com.mertadali.artsharer.util.Constants.BASE_URL
 import dagger.Module
@@ -36,6 +43,21 @@ object AppModule {
             .create(RetrofitAPI::class.java)
 
     }
+
+    @Singleton
+    @Provides
+    fun injectNormalRepo(dao : ArtDao, api: RetrofitAPI) = ArtRepository(dao,api) as ArtRepositoryInterface
+
+
+
+    @Singleton
+    @Provides
+    fun injectGlide(@ApplicationContext context: Context) = Glide.with(context)
+        .setDefaultRequestOptions(RequestOptions()
+            .placeholder(R.drawable.ic_launcher_background)
+            .error(R.drawable.ic_launcher_background))
+
+
 
 
 }

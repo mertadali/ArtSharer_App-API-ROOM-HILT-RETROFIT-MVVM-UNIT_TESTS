@@ -6,10 +6,12 @@ import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
+import com.bumptech.glide.RequestManager
 import com.mertadali.artsharer.R
 import com.mertadali.artsharer.databinding.ArtDetailsFragmentBinding
+import javax.inject.Inject
 
-class ArtDetailsFragment : Fragment(R.layout.art_details_fragment) {
+class ArtDetailsFragment  @Inject constructor(val glide : RequestManager): Fragment(R.layout.art_details_fragment) {
 
     private var artDetailsFragmentBinding : ArtDetailsFragmentBinding? = null
 

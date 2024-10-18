@@ -20,6 +20,8 @@ class ArtAllViewModel @Inject constructor(private val repository: ArtRepositoryI
 
     // ArtFragment
 
+
+
     val artList = repository.observeArts()
 
     // ImageApiFragment
