@@ -1,7 +1,6 @@
 package com.mertadali.artsharer.dependency_injection
 
 import android.content.Context
-import androidx.room.Dao
 import androidx.room.Room
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions

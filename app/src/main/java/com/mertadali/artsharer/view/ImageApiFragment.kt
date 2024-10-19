@@ -6,9 +6,11 @@ import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.mertadali.artsharer.R
+import com.mertadali.artsharer.adapter.ImageFragmentAdapter
 import com.mertadali.artsharer.databinding.ImageApiFragmentBinding
+import javax.inject.Inject
 
-class ImageApiFragment : Fragment(R.layout.image_api_fragment) {
+class ImageApiFragment @Inject constructor(val apiRecyclerAdapter : ImageFragmentAdapter): Fragment(R.layout.image_api_fragment) {
 
     private var imageApiFragmentBinding : ImageApiFragmentBinding? = null
 

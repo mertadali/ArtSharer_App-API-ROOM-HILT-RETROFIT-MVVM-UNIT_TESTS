@@ -4,6 +4,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentFactory
 import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestManager
+import com.mertadali.artsharer.adapter.ArtFragmentAdapter
+import com.mertadali.artsharer.adapter.ImageFragmentAdapter
 import javax.inject.Inject
 
 
@@ -14,11 +16,15 @@ FragmentFactory'yi kullanma ihtiyacının ana nedeni, fragmentlere bağımlılı
    İşte tam bu noktada FragmentFactory devreye girer.
  */
 
-class ArtFragmentFactory @Inject constructor(private val glide: RequestManager) : FragmentFactory(){
+class ArtFragmentFactory @Inject constructor(private val glide: RequestManager,
+    private val artRecyclerAdapter  : ArtFragmentAdapter,
+    private val imageRecyclerAdapter : ImageFragmentAdapter) : FragmentFactory(){
 
     override fun instantiate(classLoader: ClassLoader, className: String): Fragment {
 
         return when(className){
+            ArtFragment::class.java.name -> ArtFragment(artRecyclerAdapter)
+            ImageApiFragment::class.java.name -> ImageApiFragment(imageRecyclerAdapter)
             ArtDetailsFragment::class.java.name -> ArtDetailsFragment(glide)
             else -> super.instantiate(classLoader, className)
         }
