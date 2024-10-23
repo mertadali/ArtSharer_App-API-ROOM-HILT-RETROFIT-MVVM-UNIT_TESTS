@@ -51,7 +51,7 @@
             android:layout_height="wrap_content"
             android:text="Art Year"
             android:textSize="17sp"
-            android:layout_marginStart="150dp"
+            android:layout_marginLeft="15dp"
             android:layout_marginBottom="5dp"
             >
         </TextView>
