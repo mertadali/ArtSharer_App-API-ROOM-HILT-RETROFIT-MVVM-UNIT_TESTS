@@ -2,7 +2,6 @@ package com.mertadali.artsharer.view
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentFactory
-import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestManager
 import com.mertadali.artsharer.adapter.ArtFragmentAdapter
 import com.mertadali.artsharer.adapter.ImageFragmentAdapter
@@ -16,7 +15,8 @@ FragmentFactory'yi kullanma ihtiyacının ana nedeni, fragmentlere bağımlılı
    İşte tam bu noktada FragmentFactory devreye girer.
  */
 
-class ArtFragmentFactory @Inject constructor(private val glide: RequestManager,
+class ArtFragmentFactory @Inject constructor(
+    private val glide: RequestManager,
     private val artRecyclerAdapter  : ArtFragmentAdapter,
     private val imageRecyclerAdapter : ImageFragmentAdapter) : FragmentFactory(){
 

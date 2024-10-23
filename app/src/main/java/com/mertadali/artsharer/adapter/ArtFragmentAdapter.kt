@@ -27,7 +27,7 @@ class ArtFragmentAdapter @Inject constructor( val glide : RequestManager) : Recy
         }
     }
     private val diffUtilList = AsyncListDiffer(this@ArtFragmentAdapter,diffUtil)
-     var artsList : List<ArtDbModel>
+    var artsList : List<ArtDbModel>
          get() = diffUtilList.currentList
          set(value) = diffUtilList.submitList(value)
 

@@ -1,12 +1,9 @@
 package com.mertadali.artsharer.view
-
-import android.content.ClipData.Item
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.get
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -25,7 +22,7 @@ class ArtFragment @Inject constructor(val artRecyclerAdapter : ArtFragmentAdapte
 
     // Sola hareket ettirildiğinde silinmesini istiyoruz.
 
-    private val swipeCallBack = object  : ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.LEFT){
+    private val swipeCallBack = object  : ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.LEFT ){
         override fun onMove(
             recyclerView: RecyclerView,
             viewHolder: RecyclerView.ViewHolder,
@@ -61,7 +58,7 @@ class ArtFragment @Inject constructor(val artRecyclerAdapter : ArtFragmentAdapte
         // Swipe Callback
         ItemTouchHelper(swipeCallBack).attachToRecyclerView(binding.recyclerViewArt)
 
-
+// fab -> Floating action button
         binding.fab.setOnClickListener {
             val action = ArtFragmentDirections.actionArtFragmentToArtDetailsFragment()
             Navigation.findNavController(view).navigate(action)
@@ -75,6 +72,8 @@ class ArtFragment @Inject constructor(val artRecyclerAdapter : ArtFragmentAdapte
 
         })
     }
+
+
 
     override fun onDestroyView() {
         fragmentArtsBinding = null

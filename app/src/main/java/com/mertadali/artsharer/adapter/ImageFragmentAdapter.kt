@@ -9,10 +9,13 @@ import com.bumptech.glide.RequestManager
 import com.mertadali.artsharer.databinding.ImageApiRowBinding
 import javax.inject.Inject
 
-class ImageFragmentAdapter @Inject constructor(private val glide : RequestManager,
-    private val clickedListener : ImageFragmentAdapterInterface) : RecyclerView.Adapter<ImageFragmentAdapter.RowHolderApi>() {
+class ImageFragmentAdapter @Inject constructor(private val glide : RequestManager
+     ) : RecyclerView.Adapter<ImageFragmentAdapter.RowHolderApi>() {
 
     class RowHolderApi(val binding : ImageApiRowBinding) : RecyclerView.ViewHolder(binding.root)
+
+
+    private var onItemClickedListener : ((String) -> Unit) ? = null    // Tıklanılan görselin url almak için.
 
     private val diffUtil = object : DiffUtil.ItemCallback<String>(){
         override fun areItemsTheSame(oldItem: String, newItem: String): Boolean {
@@ -40,19 +43,28 @@ class ImageFragmentAdapter @Inject constructor(private val glide : RequestManage
         return imageList.size
     }
 
+
+    fun setOnItemClickedListener(listener : (String) -> Unit){
+        onItemClickedListener = listener
+    }
+
     override fun onBindViewHolder(holder: RowHolderApi, position: Int) {
       val imageView =   holder.binding.imageViewApiRow
         val url  = imageList[position]
 
-        holder.binding.apply {
+        holder.itemView.apply {
             glide.load(url).into(imageView)
 
-            root.setOnClickListener {
-                clickedListener.onItemClicked(url)
+            setOnClickListener {
+                onItemClickedListener?.let {
+                    it(url)
+                }
             }
+        }
+
+
 
 
         }
 
     }
-}

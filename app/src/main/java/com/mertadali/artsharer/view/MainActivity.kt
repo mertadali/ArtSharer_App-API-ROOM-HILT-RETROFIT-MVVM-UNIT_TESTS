@@ -1,6 +1,7 @@
 package com.mertadali.artsharer.view
 
 import android.os.Bundle
+import android.view.WindowManager
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -13,11 +14,14 @@ import javax.inject.Inject
 class MainActivity : AppCompatActivity() {
 
     @Inject
-    private lateinit var fragmentFactory: ArtFragmentFactory
+     lateinit var fragmentFactory: ArtFragmentFactory
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         supportFragmentManager.fragmentFactory = fragmentFactory
+
+        window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
+
 
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
@@ -25,6 +29,10 @@ class MainActivity : AppCompatActivity() {
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+
+
+
+
         }
     }
 }
