@@ -19,7 +19,8 @@
 
 
 
-            testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+           // testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner" -> Kendi yazdığımız runner için
+            testInstrumentationRunner = "com.mertadali.artsharer.HiltTestRunner"
 
 
         }

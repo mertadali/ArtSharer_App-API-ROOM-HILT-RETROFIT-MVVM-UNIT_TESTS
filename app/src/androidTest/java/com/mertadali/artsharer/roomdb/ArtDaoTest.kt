@@ -6,22 +6,33 @@ import androidx.test.core.app.ApplicationProvider
 import androidx.test.filters.SmallTest
 import com.google.common.truth.Truth.assertThat
 import com.mertadali.artsharer.getOrAwaitValue
+import dagger.hilt.android.testing.HiltAndroidRule
+import dagger.hilt.android.testing.HiltAndroidTest
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
 import org.junit.After
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
+import javax.inject.Inject
+import javax.inject.Named
 
 @SmallTest                // -> Halen Unit testing işlemi yaptığımız için.
 @ExperimentalCoroutinesApi
+@HiltAndroidTest
 class ArtDaoTest {
 
     @get:Rule
     var instantTaskExecutorRule = InstantTaskExecutorRule()
 
+    @get:Rule
+    var hiltRule = HiltAndroidRule(this)
+
     private lateinit var dao : ArtDao
-    private lateinit var roomDatabase: ArtDatabase
+
+    @Inject
+    @Named("testDatabase")
+    lateinit var roomDatabase: ArtDatabase
 
 
     // -> Test içinde database builder yerine inMemoryDatabaseBuilder kullanıyoruz sebebi ramde tutulur ve silinir.
@@ -29,8 +40,10 @@ class ArtDaoTest {
 
     @Before
     fun setup(){
-        roomDatabase = Room.inMemoryDatabaseBuilder(ApplicationProvider.getApplicationContext(),ArtDatabase::class.java)
-            .allowMainThreadQueries().build()
+      /*  roomDatabase = Room.inMemoryDatabaseBuilder(ApplicationProvider.getApplicationContext(),ArtDatabase::class.java)
+            .allowMainThreadQueries().build() */
+
+        hiltRule.inject()
 
         dao = roomDatabase.artDao()
 
