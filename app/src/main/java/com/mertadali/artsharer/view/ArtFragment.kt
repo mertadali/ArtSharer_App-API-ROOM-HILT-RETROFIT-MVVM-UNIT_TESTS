@@ -14,7 +14,13 @@ import com.mertadali.artsharer.databinding.FragmentArtsBinding
 import com.mertadali.artsharer.view_model.ArtAllViewModel
 import javax.inject.Inject
 
-class ArtFragment @Inject constructor(val artRecyclerAdapter : ArtFragmentAdapter ): Fragment(R.layout.fragment_arts){
+
+
+class ArtFragment @Inject constructor( var artRecyclerAdapter: ArtFragmentAdapter): Fragment(R.layout.fragment_arts){
+
+
+
+
 
     private  var fragmentArtsBinding: FragmentArtsBinding? = null
 
@@ -34,6 +40,7 @@ class ArtFragment @Inject constructor(val artRecyclerAdapter : ArtFragmentAdapte
         override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
             val layoutPosition = viewHolder.layoutPosition
            val selectedArtToSwipe =  artRecyclerAdapter.artsList[layoutPosition]
+
             viewModel.deleteArt(selectedArtToSwipe)
         }
 

@@ -8,6 +8,7 @@
         <activity
             android:name=".HiltTestActivity"
             android:exported="false"
+            android:theme="@style/FragmentScenarioEmptyFragmentActivityTheme"
             >
 
 

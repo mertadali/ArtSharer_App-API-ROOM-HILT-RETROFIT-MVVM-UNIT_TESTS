@@ -6,4 +6,9 @@
     </style>
 
     <style name="Theme.ArtSharer" parent="Base.Theme.ArtSharer" />
+
+
+    <style name="FragmentScenarioEmptyFragmentActivityTheme" parent="Theme.AppCompat.Light.NoActionBar">
+
+    </style>
 </resources>
